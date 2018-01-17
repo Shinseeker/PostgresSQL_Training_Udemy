@@ -1,0 +1,19 @@
+--Sub querying
+Select inventory.film_id
+from rental
+inner join inventory on inventory.inventory_id = rental.inventory_id
+where
+return_date Between '2005-05-29' And '2005-05-30';
+select film_id, title
+from film
+where film_id In
+
+(Select inventory.film_id
+from rental
+inner join inventory on inventory.inventory_id = rental.inventory_id
+where
+return_date Between '2005-05-29' And '2005-05-30');
+
+-- Self Joins
+
+Select a.customer_id, a.first_name, a.last_name, b.customer_id
